@@ -1,4 +1,4 @@
-# kickstart.nvim
+# Rajiv Nvim setup (in progress), based on kickstart.nvim
 
 ## Introduction
 
