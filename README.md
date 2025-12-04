@@ -2,7 +2,7 @@
 
 ## Introduction
 
-** Thank you to the kickstart NVIM mainainters for creating such an easy to use framework!**
+**Thank you to the kickstart NVIM mainainters for creating such an easy to use framework!**
 
 
 Here is my NVIM setup. So far, all I have done is:
