@@ -2,13 +2,16 @@
 
 ## Introduction
 
-A starting point for Neovim that is:
+** Thank you to the kickstart NVIM mainainters for creating such an easy to use framework!**
 
-* Small
-* Single-file
-* Completely Documented
 
-**NOT** a Neovim distribution, but instead a starting point for your configuration.
+Here is my NVIM setup. So far, all I have done is:
+- Change some keymaps
+- Add neoTree for easy file trees
+
+I hope to add:
+- toggleterm, for easy testing of scripts 
+
 
 ## Installation
 
