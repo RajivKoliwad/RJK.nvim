@@ -171,6 +171,10 @@ vim.o.confirm = true
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
+--
+-- Toggle Neo-tree file explorer
+vim.keymap.set('n', '<leader>e', '<cmd>Neotree toggle<CR>', { desc = 'Toggle [E]xplorer (Neo-tree)' })
+--
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
@@ -247,31 +251,32 @@ rtp:prepend(lazypath)
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
 
-{
-  'akinsho/toggleterm.nvim',
-  version = '*',
-  config = function()
-    local toggleterm = require('toggleterm')
-    toggleterm.setup{
-      size = 20,
-      open_mapping = [[<c-\>]],
-      direction = 'horizontal',
-      shade_terminals = true,
-      start_in_insert = true,
-      persist_size = true,
-    }
+  {
+    'akinsho/toggleterm.nvim',
+    version = '*',
+    config = function()
+      local toggleterm = require 'toggleterm'
+      toggleterm.setup {
+        size = 20,
+        open_mapping = [[<c-\>]],
+        direction = 'horizontal',
+        shade_terminals = true,
+        start_in_insert = true,
+        persist_size = true,
+      }
 
-    -- Keymap for floating terminal
-    vim.keymap.set('n', '<leader>t', function()
-      require("toggleterm.terminal").Terminal:new({
-        cmd = "bash",      -- or "zsh", "fish", etc.
-        hidden = true,
-        direction = "float",
-      }):toggle()
-    end, { noremap = true, desc = "Toggle Floating Terminal" })
-  end,
-},
-
+      -- Keymap for floating terminal
+      vim.keymap.set('n', '<leader>t', function()
+        require('toggleterm.terminal').Terminal
+          :new({
+            cmd = 'bash', -- or "zsh", "fish", etc.
+            hidden = true,
+            direction = 'float',
+          })
+          :toggle()
+      end, { noremap = true, desc = 'Toggle Floating Terminal' })
+    end,
+  },
 
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'NMAC427/guess-indent.nvim', -- Detect tabstop and shiftwidth automatically
@@ -374,6 +379,7 @@ require('lazy').setup({
         { '<leader>s', group = '[S]earch' },
         { '<leader>t', group = '[T]oggle' },
         { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
+        { '<leader>e', desc = '[E]xplorer' },
       },
     },
   },
@@ -862,7 +868,7 @@ require('lazy').setup({
         -- <c-k>: Toggle signature help
         --
         -- See :h blink-cmp-config-keymap for defining your own keymap
-        preset = 'default',
+        preset = 'enter',
 
         -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
         --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
